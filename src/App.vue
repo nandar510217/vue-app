@@ -58,17 +58,28 @@
 
     <h4 class="mt-3">V-for</h4>
     <ul>
-      <li v-for="pink in pinks" :key="pink">
-        {{pink}}
+
+      <!-- <li v-for="(val,key) in [1,2,3,4]">{{ val }} index- {{ key }}</li> -->
+      
+      <li v-for="(pink,index) in pinks" :key="index">
+        {{index}} - {{pink}}
       </li>
     </ul>
 
     <h4>V-for with Object</h4>
     <ul>
-      <li v-for="pinkObj in pinksObj">
+      <li v-for="pinkObj in pinksObj" :key="pinkObj.name">
         <div>{{ pinkObj.name }}</div>
         <div>{{ pinkObj.age }}</div>
+        <ul v-for="lang in pinkObj.language">
+          <li>{{ lang }}</li>
+        </ul>
       </li>
+    </ul>
+
+    <h4>Object loop</h4>
+    <ul>
+      <li v-for="p in person1">{{p}}</li>
     </ul>
 
   </div> 
@@ -96,12 +107,15 @@
       //V-for Directive
       const pinks = ref(['Lisa', 'Rose', 'Jinne', 'Jiso'])
       const pinksObj = ref([
-        {name: 'Lisa', age: 24},
-        {name: 'Rose', age: 21},
-        {name: 'Jinne', age: 25},
-        {name: 'Jiso', age: 20}
-
+        {name: 'Lisa', age: 24, language: ['English', 'Thai', 'Korean']},
+        {name: 'Rose', age: 21, language: ['Thai', 'Korean']},
+        {name: 'Jinne', age: 25, language: ['English', 'Thai', 'Japanese']},
+        {name: 'Jiso', age: 20, language: ['English', 'Korean']}
       ])
+
+      //Object loop
+      const person1 = reactive({name: 'John', age: 20})
+
       
 </script>
 
