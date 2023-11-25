@@ -82,6 +82,16 @@
       <li v-for="p in person1">{{p}}</li>
     </ul>
 
+    <h4>V-for with V-if Directive</h4>
+    <ul>
+      <template v-for="bp in blackPinks" :key="bp.name">
+        <li v-if="bp.age > 21">
+          <div>{{ bp.name }}</div>
+          <div>{{ bp.age }}</div>
+        </li>
+    </template>
+    </ul>
+
   </div> 
 </template>
 
@@ -115,6 +125,14 @@
 
       //Object loop
       const person1 = reactive({name: 'John', age: 20})
+
+      //v-for with v-if directive
+      const blackPinks = ref([
+        { name: 'LISA', age: 23},
+        { name: 'ROSE', age: 25},
+        { name: 'JISO', age: 20},
+        { name: 'JENIE', age: 21}
+      ]) 
 
       
 </script>
