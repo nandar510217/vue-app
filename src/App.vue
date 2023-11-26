@@ -52,45 +52,53 @@
       </div>
     </div>
 
-    <h4>ref name: {{ name }}</h4>
-    <h4>reactive name: {{ person.name }}</h4>
-    <h4>reavtive age: {{ person.age }}</h4>
+    <div class="row my-4">
+      <div class="col-md-6">
+        <h4>ref name: {{ name }}</h4>
+        <h4>reactive name: {{ person.name }}</h4>
+        <h4>reavtive age: {{ person.age }}</h4>
 
-    <h4 class="mt-3">V-for</h4>
-    <ul>
+        <h4 class="mt-3">V-for</h4>
+        <ul>
 
-      <!-- <li v-for="(val,key) in [1,2,3,4]">{{ val }} index- {{ key }}</li> -->
-      
-      <li v-for="(pink,index) in pinks" :key="index">
-        {{index}} - {{pink}}
-      </li>
-    </ul>
-
-    <h4>V-for with Object</h4>
-    <ul>
-      <li v-for="pinkObj in pinksObj" :key="pinkObj.name">
-        <div>{{ pinkObj.name }}</div>
-        <div>{{ pinkObj.age }}</div>
-        <ul v-for="lang in pinkObj.language">
-          <li>{{ lang }}</li>
+          <!-- <li v-for="(val,key) in [1,2,3,4]">{{ val }} index- {{ key }}</li> -->
+          
+          <li v-for="(pink,index) in pinks" :key="index">
+            {{index}} - {{pink}}
+          </li>
         </ul>
-      </li>
-    </ul>
 
-    <h4>Object loop</h4>
-    <ul>
-      <li v-for="p in person1">{{p}}</li>
-    </ul>
+        <h4>V-for with Object</h4>
+        <ul>
+          <li v-for="pinkObj in pinksObj" :key="pinkObj.name">
+            <div>{{ pinkObj.name }}</div>
+            <div>{{ pinkObj.age }}</div>
+            <ul v-for="lang in pinkObj.language">
+              <li>{{ lang }}</li>
+            </ul>
+          </li>
+        </ul>
 
-    <h4>V-for with V-if Directive</h4>
-    <ul>
-      <template v-for="bp in blackPinks" :key="bp.name">
-        <li v-if="bp.age > 21">
-          <div>{{ bp.name }}</div>
-          <div>{{ bp.age }}</div>
-        </li>
-    </template>
-    </ul>
+        <h4>Object loop</h4>
+        <ul>
+          <li v-for="p in person1">{{p}}</li>
+        </ul>
+
+        <h4>V-for with V-if Directive</h4>
+        <ul>
+          <template v-for="bp in blackPinks" :key="bp.name">
+            <li v-if="bp.age > 21">
+              <div>{{ bp.name }}</div>
+              <div>{{ bp.age }}</div>
+            </li>
+        </template>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4>Acessing data in Method</h4>
+        <p>{{ fullName() }}</p>
+      </div>
+    </div>
 
   </div> 
 </template>
@@ -133,6 +141,14 @@
         { name: 'JISO', age: 20},
         { name: 'JENIE', age: 21}
       ]) 
+
+      //Accessing data in Method
+      const firstName = 'Nan'
+      const lastName = 'Dar'
+      const fullName = () => {
+        // return firstName+ ' ' + lastName;  (or)
+        return `${firstName} ${lastName}`
+      }
 
       
 </script>
