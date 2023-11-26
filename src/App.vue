@@ -107,8 +107,9 @@
         <h4>Event Handling - Method Handler</h4>
         <h5>{{ number }}</h5>
         <button class="btn btn-warning me-2" @click="add()">Add 1</button>
-        <button class="btn btn-danger me-2" @click="reduce()">Reduce 1</button>
+        <button class="btn btn-danger me-2" @click="reduce()">Reduce 1</button><br><br>
         <button class="btn btn-success me-2" @click="showAlert()">Show Alert</button>
+        <button class="btn btn-success me-2" @click="nativeEvent($event, 'Nan Dar')">Native Event</button>
 
       </div>
     </div>
@@ -175,6 +176,10 @@
       }
       const showAlert = () => {
         alert('Alert function in js')
+      }
+      const nativeEvent = (e, name) => {
+        console.log(e)
+        console.log('Hello' + name)
       }
 
       
