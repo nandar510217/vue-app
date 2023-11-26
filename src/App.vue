@@ -94,9 +94,22 @@
         </template>
         </ul>
       </div>
+
       <div class="col-md-6">
         <h4>Acessing data in Method</h4>
-        <p>{{ fullName() }}</p>
+        <p>Full Name: {{ fullName() }}</p>
+
+        <h4>Event Handling - Inline Handler</h4>
+        <h5>{{ count }}</h5>
+        <button class="btn btn-primary me-2" @click="count++">Increase</button>
+        <button class="btn btn-primary" @click="count--">Decrease</button>
+
+        <h4>Event Handling - Method Handler</h4>
+        <h5>{{ number }}</h5>
+        <button class="btn btn-warning me-2" @click="add()">Add 1</button>
+        <button class="btn btn-danger me-2" @click="reduce()">Reduce 1</button>
+        <button class="btn btn-success me-2" @click="showAlert()">Show Alert</button>
+
       </div>
     </div>
 
@@ -143,11 +156,25 @@
       ]) 
 
       //Accessing data in Method
-      const firstName = 'Nan'
-      const lastName = 'Dar'
+      const firstName = ref('Nan')
+      const lastName = ref('Dar')
       const fullName = () => {
         // return firstName+ ' ' + lastName;  (or)
-        return `${firstName} ${lastName}`
+        return `${firstName.value} ${lastName.value}`
+      }
+
+      //Event Handling - Inline Handler
+      const count = ref(0)
+      //Event Handling - Method Handler
+      const number = ref(0)
+      const add = () => {
+        number.value++;
+      }
+      const reduce = () => {
+        number.value--;
+      }
+      const showAlert = () => {
+        alert('Alert function in js')
       }
 
       
