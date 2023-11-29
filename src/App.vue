@@ -112,70 +112,38 @@
         <button class="btn btn-success me-2" @click="nativeEvent($event, 'Nan Dar')">Native Event</button>
       </div>
     </div>
-    
+
+    <!-- To Do List -->
     <div class="row">
+      <div class="col-md-3"></div>
       <div class="col-md-6">
-        <h3>User Info</h3>
-        <label for="">Name</label>
-        <input type="text" v-model="userInfo.name1" class="form-control">
-        <label for="">Email</label>
-        <input type="text" v-model="userInfo.email1" class="form-control">
-        <label for="">Address</label>
-        <textarea name="" v-model="userInfo.address" rows="3" class="form-control"></textarea>
-        <div>
-          <label for="">City</label>
-          <select v-model="userInfo.city" class="form-control">
-            <option value="Monywa">Monywa</option>
-            <option value="Taungyi">Taungyi</option>
-            <option value="Mandalay">Mandalay</option>
-            <option value="Yangon">Yangon</option>
-          </select>
+        <h4 class="mb-3">To Do List</h4>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" v-model="inputTodo">
+          <button class="btn btn-outline-secondary" @click="addTodo" type="submit" id="button-addon2">Add</button>
         </div>
-        <div>
-          <label for="">Roles</label>
-          <select v-model="userInfo.roles" class="form-control" multiple>
-            <option value="Student">Student</option>
-            <option value="Programer">Programer</option>
-            <option value="Freelance">Freelance</option>
-          </select>
-        </div>
-        <div class="mt-3">
-          <label for="">Single</label><br>
-          <input type="checkbox" v-model="userInfo.isSingle" true-value="yes" false-value="no">
-        </div>
-        <div class="mt-3">
-          <label for="">Hobbies</label><br>
-          <input type="checkbox" v-model="userInfo.hobbies" value="Coding">Coding<br>
-          <input type="checkbox" v-model="userInfo.hobbies" value="Reading">Reading<br>
-          <input type="checkbox" v-model="userInfo.hobbies" value="Playing">Playing<br>
-        </div>
-        <div class="mt-3">
-          <label for="">Gender</label><br>
-          <input type="radio" v-model="userInfo.gender" value="Male">Male<br>
-          <input type="radio" v-model="userInfo.gender" value="Female ">Female<br>
-        </div>
-        <div class="mt-3">
-          <button class="btn btn-sm btn-primary" @click="storeUserInfo">Submit</button>
-        </div>
+        <ul v-for="todo in todos">
+          <li>{{todo}}</li>
+          
+        </ul>
       </div>
-      <div class="col-md-6">
-        <div>{{ userInfo.name1 }}</div>
-        <div>{{ userInfo.email1 }}</div>
-        <div>{{ userInfo.address }}</div>
-        <div>{{ userInfo.city }}</div>
-        <div>{{ userInfo.roles }}</div>
-        <div>{{ userInfo.isSingle }}</div>
-        <div>{{ userInfo.hobbies }}</div>
-        <div>{{ userInfo.gender }}</div>
-      </div>
+      <div class="col-md-3"></div>
     </div>
 
   </div> 
+  <FormHandling/>
+  
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6"><ToDoList /></div>
+    <div class="col-md-3"></div>
+  </div>
 </template>
 
 <script setup>
   import {ref, reactive} from 'vue';
-  
+  import FormHandling from './components/FormHandling.vue';
+  import ToDoList from './components/ToDoList.vue';
       const isTrue = ref(true)
       const is2ndTrue = ref(true)
 
@@ -238,24 +206,7 @@
         console.log('Hello' + name)
       }
 
-      const isTrueshow = ref(false)
-
-      //Form Handling
-      const userInfo = reactive({
-        name1: '',
-        email1: '',
-        address: '',
-        city: '',
-        roles: [],
-        isSingle: "yes",
-        hobbies: [], 
-        gender: 'Male'
-      })
-
-      const storeUserInfo = () => {
-        console.log(userInfo);
-      }
-      
+      const isTrueshow = ref(false)     
 </script>
 
 
