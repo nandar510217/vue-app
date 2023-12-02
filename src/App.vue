@@ -52,6 +52,7 @@
       </div>
     </div>
 
+    <!-- hide -->
     <div class="row my-4" v-if="isTrueshow">
       <div class="col-md-6">
         <h4>ref name: {{ name }}</h4>
@@ -67,7 +68,6 @@
             {{index}} - {{pink}}
           </li>
         </ul>
-
         <h4>V-for with Object</h4>
         <ul>
           <li v-for="pinkObj in pinksObj" :key="pinkObj.name">
@@ -113,37 +113,27 @@
       </div>
     </div>
 
-    <!-- To Do List -->
+
+    <!-- Components -->
+    <FormHandling/>
+    
     <div class="row">
       <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <h4 class="mb-3">To Do List</h4>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" v-model="inputTodo">
-          <button class="btn btn-outline-secondary" @click="addTodo" type="submit" id="button-addon2">Add</button>
-        </div>
-        <ul v-for="todo in todos">
-          <li>{{todo}}</li>
-          
-        </ul>
-      </div>
+      <div class="col-md-6"><ToDoList/></div>
       <div class="col-md-3"></div>
     </div>
+    <Adult/> 
+    
+    </div> 
 
-  </div> 
-  <FormHandling/>
-  
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6"><ToDoList /></div>
-    <div class="col-md-3"></div>
-  </div>
 </template>
 
 <script setup>
-  import {ref, reactive} from 'vue';
+  import {computed, ref, reactive} from 'vue';
   import FormHandling from './components/FormHandling.vue';
   import ToDoList from './components/ToDoList.vue';
+  import Adult from './components/Adult.vue';
+
       const isTrue = ref(true)
       const is2ndTrue = ref(true)
 
@@ -206,7 +196,10 @@
         console.log('Hello' + name)
       }
 
-      const isTrueshow = ref(false)     
+      //hide
+      const isTrueshow = ref(false)   
+      
+      
 </script>
 
 
