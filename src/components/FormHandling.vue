@@ -11,7 +11,7 @@
                         <label for="">Email</label>
                         <input type="text" v-model="userInfo.email" class="form-control">
                         <label for="">Address</label>
-                        <textarea name="" v-model="userInfo.address" rows="3" class="form-control"></textarea>
+                        <textarea name="" v-model="userInfo.address" rows="2" class="form-control"></textarea>
                         <div>
                         <label for="">City</label>
                         <select v-model="userInfo.city" class="form-control">
@@ -35,9 +35,12 @@
                         </div>
                         <div class="mt-3">
                         <label for="">Hobbies</label><br>
-                        <input type="checkbox" v-model="userInfo.hobbies" value="Coding">Coding<br>
-                        <input type="checkbox" v-model="userInfo.hobbies" value="Reading">Reading<br>
-                        <input type="checkbox" v-model="userInfo.hobbies" value="Playing">Playing<br>
+                        <input type="checkbox" v-model="userInfo.hobbies" value="Coding" class="me-1">
+                        <label for="coding" class="me-2">Coding</label>
+                        <input type="checkbox" v-model="userInfo.hobbies" value="Reading" class="me-1">
+                        <label for="reading" class="me-2">Reading</label>
+                        <input type="checkbox" v-model="userInfo.hobbies" value="Playing" class="me-1">
+                        <label for="playing">Playing</label>
                         </div>
                         <div class="mt-3">
                             <label for="">Gender</label>

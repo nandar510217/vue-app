@@ -123,6 +123,14 @@
       <div class="col-md-3"></div>
     </div>
     <Adult/> 
+    <Component/>
+    <div class="row">
+      <Card cardTitle="Hello 1"/>
+      <Card cardTitle="Hello 2"/>
+      <Card cardTitle="Hello 3"/>
+      <Card cardTitle="Hello 4"/>
+    </div>
+    
     
     </div> 
 
@@ -133,6 +141,8 @@
   import FormHandling from './components/FormHandling.vue';
   import ToDoList from './components/ToDoList.vue';
   import Adult from './components/Adult.vue';
+  import Component from './components/Component.vue';
+  import Card from './components/Card.vue';
 
       const isTrue = ref(true)
       const is2ndTrue = ref(true)
