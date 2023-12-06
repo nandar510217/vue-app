@@ -123,14 +123,21 @@
       <div class="col-md-3"></div>
     </div>
     <Adult/> 
+    <!-- component -->
     <Component/>
     <div class="row">
-      <Card cardTitle="Hello 1"/>
-      <Card cardTitle="Hello 2"/>
-      <Card cardTitle="Hello 3"/>
-      <Card cardTitle="Hello 4"/>
+      <Card v-for="item in items" :key="item.id" :cardTitle="item.name" :btnName="btnValue"/>
+      <!-- <button class="btn btn-primary">Submit</button> -->
     </div>
+    <!-- <Button :btnName="100" someClasses="btn-success" /> -->
     
+    <div class="card w-75 mt-5">
+      <div class="card-header d-flex justify-content-between">
+        <h4>{{ infoName }} {{ test }}</h4>
+        <button class="btn btn-info" @click="showInfo=true">See Info</button>
+      </div>
+      <Info :info="info" v-if="showInfo" @close-info="closeInfo"/>
+    </div>
     
     </div> 
 
@@ -141,8 +148,10 @@
   import FormHandling from './components/FormHandling.vue';
   import ToDoList from './components/ToDoList.vue';
   import Adult from './components/Adult.vue';
-  import Component from './components/Component.vue';
+  // import Component from './components/Component.vue';
   import Card from './components/Card.vue';
+  import Info from './components/Info.vue';
+
 
       const isTrue = ref(true)
       const is2ndTrue = ref(true)
@@ -208,6 +217,28 @@
 
       //hide
       const isTrueshow = ref(false)   
+
+      
+    //component
+    const items = ref([
+      {id: 1, name: 'item1'},
+      {id: 2, name: 'item2'},
+      {id: 3, name: 'item3'},
+      {id: 4, name: 'item4'},
+    ])
+
+    const btnValue = ref('Card Detail')
+
+    //component event
+    const test =ref('from parent')
+    
+    const closeInfo = (data) => {
+      test.value = data
+      showInfo.value = false
+    }
+    const showInfo = ref(false)
+    const infoName = ref('John Doe')
+    const info = ref('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe consequuntur placeat, vel exercitationem atque voluptate voluptates molestias! Nulla quae maiores aliquid asperiores, itaque dolorem error ipsum facere doloribus placeat quaerat.')
       
       
 </script>
