@@ -5,15 +5,20 @@
 </template>
 
 <script setup>
-    // defineProps(['btnName', 'someClasses'])
-    defineProps({
-        btnName: {
-            type: [String,Number],
-            required:true,
-            default: 'default'
-        },
-        someClasses: String
-    })
+import { inject } from 'vue';
+
+    defineProps(['someClasses'])
+    // defineProps({
+    //     btnValue: {
+    //         type: [String,Number],
+    //         required:true,
+    //         default: 'default'
+    //     },
+    //     someClasses: String
+    // })
+
+    //provide and inject
+    const btnName = inject('btnValue')
  
 </script>
 

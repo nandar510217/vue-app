@@ -124,9 +124,9 @@
     </div>
     <Adult/> 
     <!-- component -->
-    <Component/>
+    <SignIn/>
     <div class="row">
-      <Card v-for="item in items" :key="item.id" :cardTitle="item.name" :btnName="btnValue"/>
+      <Card />
       <!-- <button class="btn btn-primary">Submit</button> -->
     </div>
     <!-- <Button :btnName="100" someClasses="btn-success" /> -->
@@ -144,14 +144,13 @@
 </template>
 
 <script setup>
-  import {computed, ref, reactive} from 'vue';
+  import {computed, ref, reactive, provide} from 'vue';
   import FormHandling from './components/FormHandling.vue';
   import ToDoList from './components/ToDoList.vue';
   import Adult from './components/Adult.vue';
-  // import Component from './components/Component.vue';
+  import SignIn from './components/SignIn.vue';
   import Card from './components/Card.vue';
   import Info from './components/Info.vue';
-
 
       const isTrue = ref(true)
       const is2ndTrue = ref(true)
@@ -227,7 +226,12 @@
       {id: 4, name: 'item4'},
     ])
 
-    const btnValue = ref('Card Detail')
+    //props drilling
+    // const btnValue = ref('Card Detail')
+
+    //provide and inject
+    provide('btnValue', 'Card Detail')
+    provide('items', items.value)
 
     //component event
     const test =ref('from parent')
