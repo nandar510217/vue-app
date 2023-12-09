@@ -138,6 +138,14 @@
       </div>
       <Info :info="info" v-if="showInfo" @close-info="closeInfo"/>
     </div>
+
+    <!-- Slot -->
+    <AlertSlot class="mt-3">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe consequuntur placeat, vel exercitationem atque voluptate voluptates molestias! Nulla quae maiores aliquid asperiores, itaque dolorem error ipsum facere doloribus placeat quaerat. </p>
+    </AlertSlot>
+
+    <!-- Watcher -->
+    <Watcher/>
     
     </div> 
 
@@ -151,6 +159,8 @@
   import SignIn from './components/SignIn.vue';
   import Card from './components/Card.vue';
   import Info from './components/Info.vue';
+  import AlertSlot from './components/AlertSlot.vue';
+  import Watcher from './components/Watcher.vue';
 
       const isTrue = ref(true)
       const is2ndTrue = ref(true)
